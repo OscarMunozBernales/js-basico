@@ -95,3 +95,19 @@ const sumar = function( param1, param2 ) {
 }
 ```
 
+## 1.5. Scope
+Basicamente el scope es un todo, es en todo el documento de js en donde tenemos a nuestra disposicion variables, funciones etc, pero existen sub-scope en donde las variables que se van a inicializar dentro no se van a poder ocupar afuera.
+
+```javascript
+var miNombre = "Oscar";
+
+function nombreCompleto(){
+    var miApellido = "Muñoz";
+    console.log( miNombre + " " + miApellido );
+}
+
+nombreCompleto();           // VA A IMPRIMIR OSCAR MUÑOZ
+console.log(miNombre);      // VA A IMPRIMIR OSCAR
+console.log(miApellido);    // NOS INDICARA QUE LA VARIABLE NO EXISTE.
+
+```
