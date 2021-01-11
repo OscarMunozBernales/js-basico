@@ -95,7 +95,8 @@ const sumar = function( param1, param2 ) {
 }
 ```
 
-## 1.5. Scope
+# 2. Bases de javascript
+## 2.1. Scope
 Basicamente el scope es un todo, es en todo el documento de js en donde tenemos a nuestra disposicion variables, funciones etc, pero existen sub-scope en donde las variables que se van a inicializar dentro no se van a poder ocupar afuera.
 
 ```javascript
@@ -112,7 +113,7 @@ console.log(miApellido);    // NOS INDICARA QUE LA VARIABLE NO EXISTE.
 
 ```
 
-## 1.6. Hoisting.
+## 2.2. Hoisting.
 Si tenemos el siguiente código, que lo va a imprimir por pantalla:
 ```javascript
 
@@ -154,4 +155,80 @@ let saludar = (nombre) => {
 }
 saludar(nombre);
 ```
+
+## 2.3. Coerción.
+
+Coerción es la forma en la que podemos cambiar un tipo de valor a otro, existen dos tipos de coerción:
+Coerción implícita = es cuando el lenguaje nos ayuda a cambiar el tipo de valor.
+Coerción explicita = es cuando obligamos a que cambie el tipo de valor.
+
+```js
+4 + '7';    // 11
+4 * '7';    // 28
+2 + true;   // 3
+false - 3;  // -3
+```
+
+## 2.4. Valores: Truthy y Falsy
+Ejemplos en los que Boolean devuelve Falso:
+```js
+Boolean(0); //false
+Boolean(null); //false
+Boolean(NaN); //false
+Boolean(undefined); //false
+Boolean(false); //false
+Boolean(""); //false
+```
+Ejemplos en los que Boolean devuelve verdadero:
+```js
+Boolean(1); //true para 1 o cualquier número diferente de cero (0)
+Boolean("a"); //true para cualquier caracter o espacio en blanco en el string
+Boolean([]); //true aunque el array esté vacío
+Boolean({}); //true aunque el objeto esté vacío
+Boolean(function(){}); //Cualquier función es verdadera también
+```
+
+## 2.5. Operadores
+### Operadores de asignación
+
+|Nombre|Operador abreviado|Significado
+|--|--|--|
+|Asignación|x = y|x = y
+|Asignación de adición|x += y|x = x + y
+|Asignación de resta|x -= y|x = x - y
+|Asignación de multiplicación|x *= y|x = x * y
+|Asignación de división|x /= y|x = x / y
+|Asignación de residuo|x %= y|x = x % y
+|Asignación de exponenciación|x **= y|x = x ** y
+|Asignación de desplazamiento a la izquierda|x <<= y|x = x << y
+|Asignación de desplazamiento a la derecha|x >>= y|x = x >> y
+|Asignación de desplazamiento a la derecha sin signo|x >>>= y|x = x >>> y
+|Asignación AND bit a bit|x &= y|x = x & y
+|Asignación XOR bit a bit|x ^= y|x = x ^ y
+|Asignación OR bit a bit|x |= y|x = x | y
+|Asignación AND lógico|x &&= y|x && (x = y)
+|Asignación OR lógico|x \|\|= y|x \|\| (x = y)
+|Asignación de anulación lógica|x ??= y|x ?? (x = y)
+
+### Operador de comparación
+|Operador|Descripción
+|--|--|
+|Igual (==)|Devuelve true si los operandos son iguales.
+|No es igual (!=)|Devuelve true si los operandos no son iguales.
+|Estrictamente igual (===)|Devuelve true si los operandos son iguales y del mismo tipo. Consulta también Object.is y similitud en JS.|
+|Desigualdad estricta (!==)|Devuelve true si los operandos son del mismo tipo pero no iguales, o son de diferente tipo.|
+|Mayor que (>)|Devuelve true si el operando izquierdo es mayor que el operando derecho.|
+|Mayor o igual que (>=)|Devuelve true si el operando izquierdo es mayor o igual que el operando derecho.|
+|Menor que (<)|Devuelve true si el operando izquierdo es menor que el operando derecho.|
+|Menor o igual (<=)|Devuelve true si el operando izquierdo es menor o igual que el operando derecho.|
+
+### Operadores aritméticos
+|Operador|Descripción|Ejemplo|
+|--|--|--|
+|Residuo (%)|Operador binario. Devuelve el resto entero de dividir los dos operandos.|12 % 5 devuelve 2.|
+|Incremento (++)|Operador unario. Agrega uno a su operando. Si se usa como operador prefijo (++x), devuelve el valor de su operando después de agregar uno; si se usa como operador sufijo (x++), devuelve el valor de su operando antes de agregar uno.|Si x es 3, ++x establece x en 4 y devuelve 4, mientras que x++ devuelve 3 y , solo entonces, establece x en 4.|
+|Decremento (--)|Operador unario. Resta uno de su operando. El valor de retorno es análogo al del operador de incremento.|Si x es 3, entonces --x establece x en 2 y devuelve 2, mientras que x-- devuelve 3 y, solo entonces, establece x en 2.|
+|Negación unaria (-)|Operador unario. Devuelve la negación de su operando.|Si x es 3, entonces -x devuelve -3.|
+|Positivo unario (+)|Operador unario. Intenta convertir el operando en un número, si aún no lo es.|+"3" devuelve 3. +true devuelve 1.|
+|Operador de exponenciación (**)|Calcula la base a la potencia de exponente, es decir, base(exponente)|2 ** 3 returns 8. 10 ** -1 returns 0.1.|
 
