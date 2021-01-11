@@ -232,3 +232,14 @@ Boolean(function(){}); //Cualquier función es verdadera también
 |Positivo unario (+)|Operador unario. Intenta convertir el operando en un número, si aún no lo es.|+"3" devuelve 3. +true devuelve 1.|
 |Operador de exponenciación (**)|Calcula la base a la potencia de exponente, es decir, base(exponente)|2 ** 3 returns 8. 10 ** -1 returns 0.1.|
 
+# 3.Condicionales
+## 3.1. Condicionales: If, Else, else if
+Una sintaxis básica de if .. else, luce así
+```js
+if (condicion){
+    // Código a ejecutar si la condición es verdadera.
+}else {
+    // Código a ejecutar si la condición es falsa.
+}
+```
+
