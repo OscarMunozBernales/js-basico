@@ -111,3 +111,47 @@ console.log(miNombre);      // VA A IMPRIMIR OSCAR
 console.log(miApellido);    // NOS INDICARA QUE LA VARIABLE NO EXISTE.
 
 ```
+
+## 1.6. Hoisting.
+Si tenemos el siguiente código, que lo va a imprimir por pantalla:
+```javascript
+
+console.log(nombre);
+var nombre = "Oscar";
+
+// undefine
+```
+
+Puesto que las variables inicializadas con **var** suben hasta lo mas alto del scope para inicializarce:
+```js
+var nombre;
+console.log(nombre);
+nombre = 'Oscar';
+```
+Lo mismo pasa con las funciones, es como javascript va a interpretar nuestro codigo:
+```js
+
+saludar("OSCAR");
+function saludar(nombre){
+    var saludo = "Hola " + nombre;
+    console.log(saludo);
+}
+```
+js lo interpreta de la siguiente manera:
+```js
+function saludar(nombre){
+    var saludo;
+    saludo = "Hola " + nombre;
+    console.log(saludo);
+}
+saludar("OSCAR");
+```
+Actualmente en el ESC6 no ocurre el hoisting, puesto que este solo se ejecuta cuando ocupamos funcioens y variables inicializadas con var, actualmente se ocupan funciones anonimas y las varaibles se inicializan en let
+```js
+let nombre = "OSCAR";
+let saludar = (nombre) => {
+    console.log( "HOLA " + nombre );
+}
+saludar(nombre);
+```
+
