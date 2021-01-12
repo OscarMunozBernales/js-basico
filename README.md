@@ -302,3 +302,35 @@ switch (expr) {
 
 console.log("¿Hay algo más que te quisiera consultar?");
 ```
+
+# 4. Arrays
+Los arrays son objetos similares a una lista cuyo prototipo proporciona métodos para efectuar operaciones de recorrido y de mutación. Tanto la longitud como el tipo de los elementos de un array son variables. Dado que la longitud de un array puede cambiar en cualquier momento, y los datos se pueden almacenar en ubicaciones no contiguas, no hay garantía de que los arrays de JavaScript sean densos; esto depende de cómo el programador elija usarlos. En general estas características son cómodas, pero si, en su caso particular, no resultan deseables, puede considerar el uso de arrays con tipo.
+
+Crear un Array
+```js
+let frutas = ["Manzana", "Banana"]
+
+console.log(frutas.length)
+// 2
+```
+
+Acceder a un elemento de Array mediante su índice
+```js
+let primero = frutas[0]
+// Manzana
+
+let ultimo = frutas[frutas.length - 1]
+// Banana
+```
+
+Recorrer un Array
+```js
+frutas.forEach(function(elemento, indice, array) {
+    console.log(elemento, indice);
+})
+// Manzana 0
+// Banana 1
+```
+
+Existen muchos metodos más, como por ejemplo agregar un elemento al array, quitar un elemento, modificar un elemento, todo esto lo podemos ver en el [Siguiente enlace](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array)
+
