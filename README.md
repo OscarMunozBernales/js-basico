@@ -500,3 +500,36 @@ for (let i of arr) {
    console.log(i); // logs 3, 5, 7
 }
 ```
+
+# 6.Objetos.
+## 6.1. Objects
+Objetos: JS es un lenguaje que está diseñado en un paradigma de objetos.
+
+Ejemplo de Objeto:
+```js
+var miAuto = {
+marca: "Toyota",
+modelo: "Corolla",
+año: 2020
+}
+```
+Acceder a una propiedad del objeto:
+```js
+console.log(miAuto.marca); 
+// "Toyota"
+```
+Se pueden agregar propiedades que van a ser una función, se les llama métodos de objetos.
+```js
+var miAuto = {
+marca: "Toyota",
+modelo: "Corolla",
+año: 2020, 
+detallesDelAuto: function () {
+	console.log(`Auto ${this.modelo} ${this.año}`);
+}
+// miAuto.detallesDelAuto();
+//Auto Corolla 2020
+```
+¿Quién es this?
+Es una variable que hace referencia al objeto. En este caso: this = miAuto.
+
