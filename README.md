@@ -243,3 +243,62 @@ if (condicion){
 }
 ```
 
+Ademas para no anidar muchos if dentro del else, existe el else if:
+```js
+if (condicion1) {
+    // Codigo a ejecutar si la condición es verdadera
+} else if (condicion2) {
+    // Código a ejecutar si la condición 1 es falsa y la condición 2 es verdadera
+} else if (condicionN) {
+    // Código a ejecutar si la condición 1 y 2 son falsas y la condición N es verdadera
+} else {
+    // Código a ejecutar si las condiciones son falsas.
+}
+```
+
+## 3.1. Switch.
+La declaración switch evalúa una expresión, comparando el valor de esa expresión con una instancia case, y ejecuta declaraciones asociadas a ese case, así como las declaraciones en los case que siguen.
+
+```js
+switch (expresión) {
+  case valor1:
+    //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor1
+    break;
+  case valor2:
+    //Declaraciones ejecutadas cuando el resultado de expresión coincide con el valor2
+    break;
+  ...
+  case valorN:
+    //Declaraciones ejecutadas cuando el resultado de expresión coincide con valorN
+    break;
+  default:
+    //Declaraciones ejecutadas cuando ninguno de los valores coincide con el valor de la expresión
+    break;
+}
+```
+
+Ejemplo:
+```js
+switch (expr) {
+  case 'Naranjas':
+    console.log('El kilogramo de naranjas cuesta $0.59.');
+    break;
+  case 'Manzanas':
+    console.log('El kilogramo de manzanas cuesta $0.32.');
+    break;
+  case 'Platanos':
+    console.log('El kilogramo de platanos cuesta $0.48.');
+    break;
+  case 'Cerezas':
+    console.log('El kilogramo de cerezas cuesta $3.00.');
+    break;
+  case 'Mangos':
+  case 'Papayas':
+    console.log('El kilogramo de mangos y papayas cuesta $2.79.');
+    break;
+  default:
+    console.log('Lo lamentamos, por el momento no disponemos de ' + expr + '.');
+}
+
+console.log("¿Hay algo más que te quisiera consultar?");
+```
