@@ -334,3 +334,169 @@ frutas.forEach(function(elemento, indice, array) {
 
 Existen muchos metodos más, como por ejemplo agregar un elemento al array, quitar un elemento, modificar un elemento, todo esto lo podemos ver en el [Siguiente enlace](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Objetos_globales/Array)
 
+# 5 Lopps
+## 5.1. Loops: For y For...of
+
+Los bucles ofrecen una forma rápida y sencilla de hacer algo repetidamente.
+Hay muchos diferentes tipos de bucles, pero esencialmente, todos hacen lo mismo: repiten una acción varias veces. (¡Ten en cuenta que es posible que ese número sea cero!).
+
+### FOR
+Un ciclo for se repite hasta que una condición especificada se evalúe como false. El bucle for de JavaScript es similar al bucle for de Java y C.
+```js
+let frutas = ["Manzana", "Naranjas", "Peras", "Sandia", "Platano"];
+for ( let i = 0; i < frutas.length; i++ ) {
+    // Código a ejecutar
+    console.log( "Fruta: " + frutas[i] );
+}
+```
+
+### Do while
+La instrucción do...while se repite hasta que una condición especificada se evalúe como falsa.
+Una declaración do...while tiene el siguiente aspecto:
+```js
+let frutas = ["Manzana", "Naranjas", "Peras", "Sandia", "Platano"];
+let cont = 0;
+do
+  console.log( "Fruta: " + frutas[cont]);
+  cont++;
+while ( cont < frutas.length );
+```
+
+### While
+Una declaración while ejecuta sus instrucciones siempre que una condición especificada se evalúe como true. Una instrucción while tiene el siguiente aspecto:
+```js
+let frutas = ["Manzana", "Naranjas", "Peras", "Sandia", "Platano"];
+let cont = 0;
+while ( cont < frutas.length ) {
+    console.log( "Fruta: " + frutas[cont] );
+}
+```
+
+### Declaración labeled
+Una label proporciona una instrucción con un identificador que te permite hacer referencia a ella en otra parte de tu programa. Por ejemplo, puedes usar una etiqueta para identificar un bucle y luego usar las declaraciones break o continue para indicar si un programa debe interrumpir el bucle o continuar su ejecución.La sintaxis de la instrucción etiquetada es similar a la siguiente:label : instrucción
+
+El valor de label puede ser cualquier identificador de JavaScript que no sea una palabra reservada. La declaración que identifica a una etiqueta puede ser cualquier enunciado.
+
+Ejemplo
+
+En este ejemplo, la etiqueta markLoop identifica un bucle while.
+```js
+markLoop: while (theMark === true) { doSomething(); }
+```
+
+#### Declaración break
+
+Usa la instrucción break para terminar un bucle, switch o junto con una declaración etiquetada.
+- Cuando usas break sin una etiqueta, inmediatamente termina el while, do-while, for o switch y transfiere el control a la siguiente declaración.
+- Cuando usas break con una etiqueta, termina la declaración etiquetada especificada.
+
+La sintaxis de la instrucción break se ve así:
+```js
+break;
+break [label];
+```
+- La primera forma de la sintaxis termina el bucle envolvente más interno o el switch.
+- La segunda forma de la sintaxis termina la instrucción etiquetada específica.
+
+Ejemplo:
+```js
+let x = 0;
+let z = 0;
+labelCancelLoops: while (true) {
+  console.log('Bucles externos: ' + x);
+  x += 1;
+  z = 1;
+  while (true) {
+    console.log('Bucles internos: ' + z);
+    z += 1;
+    if (z === 10 && x === 10) {
+      break labelCancelLoops; // rompe con la etiqueta labelCancelLoops
+    } else if (z === 10) {
+      break; // rompe solo el while de su scope (bucle interno)
+    }
+  }
+}
+
+```
+
+#### Declaración continue
+La instrucción continue se puede usar para reiniciar un while, do-while, for, o declaración label.
+- Cuando utilizas continue sin una etiqueta, finaliza la iteración actual del while, do-while o for y continúa la ejecución del bucle con la siguiente iteración. A diferencia de la instrucción break, continue no termina la ejecución del bucle por completo. En un bucle while, vuelve a la condición. En un bucle for, salta a la expresión-incremento.
+- Cuando usas continue con una etiqueta, se aplica a la declaración de bucle identificada con esa etiqueta.
+
+La sintaxis de la instrucción continue se parece a la siguiente:
+```js
+continue [label];
+```
+
+Ejemplo:
+El siguiente ejemplo muestra un bucle while con una instrucción continue que se ejecuta cuando el valor de i es 3. Por lo tanto, n toma los valores 1, 3, 7 y 12.
+```js
+
+let i = 0;
+let n = 0;
+while (i < 5) {
+  i++;
+  if (i === 3) {
+    continue;
+  }
+  n += i;
+  console.log(n);
+}
+//1,3,7,12
+
+
+let i = 0;
+let n = 0;
+while (i < 5) {
+  i++;
+  if (i === 3) {
+     // continue;
+  }
+  n += i;
+  console.log(n);
+}
+// 1,3,6,10,15
+
+```
+
+### Declaración for...in
+La instrucción for...in itera una variable especificada sobre todas las propiedades enumerables de un **objeto**. Para cada propiedad distinta, JavaScript ejecuta las instrucciones especificadas. Una declaración for...in tiene el siguiente aspecto:
+```js
+for (variable in objeto)
+  instrucción
+```
+
+Ejemplo:
+
+```js
+function dump_props(obj, obj_name) {
+  let result = '';
+  for (let i in obj) {
+    result += obj_name + '.' + i + ' = ' + obj[i] + '<br>';
+  }
+  result += '<hr>';
+  return result;
+}
+
+```
+
+### Declaración for...of
+La declaración for...of crea un bucle que se repite sobre objetos iterables (incluidos Array, Map, Set, objetos arguments y así sucesivamente), invocando un gancho de iteración personalizado con declaraciones que se ejecutarán para el valor de cada distinta propiedad.
+```js
+para (variable of objeto)
+  expresión
+```
+El siguiente ejemplo muestra la diferencia entre un bucle for...in y un bucle for...of. Mientras que for...in itera sobre los nombres de propiedad, for...of itera sobre los valores de propiedad:
+```js
+const arr = [3, 5, 7];
+arr.foo = 'hola';
+
+for (let i in arr) {
+   console.log(i); // logs "0", "1", "2", "foo"
+}
+
+for (let i of arr) {
+   console.log(i); // logs 3, 5, 7
+}
+```
